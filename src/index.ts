@@ -12,7 +12,6 @@ async function readRequestBody(request: Request): Promise<string> {
 
   if (contentType.includes("application/json")) {
     const body = await request.json();
-    console.log(JSON.stringify(body));
     return JSON.stringify(body);
   } else if (contentType.includes("application/text")) {
     return request.text();
@@ -32,35 +31,21 @@ async function readRequestBody(request: Request): Promise<string> {
   }
 }
 
-const someForm = html`<!DOCTYPE html>
-  <html>
-    <body>
-      <form action="/" method="post">
-        <div>
-          <label for="message">Message:</label>
-          <input id="message" name="message" type="text" />
-        </div>
-        <div>
-          <button>Submit</button>
-        </div>
-      </form>
-    </body>
-  </html>`;
-
-app.get("*", async (c) => {
-  const url = c.req.url;
-
-  if (url.includes("form")) {
-    return c.html(someForm);
-  }
-
-  return c.text("The request was a GET");
-});
-
 app.post("*", async (c) => {
   const reqBody = await readRequestBody(c.req.raw);
-  const retBody = `The request body sent in was ${reqBody}`;
-  return c.text(retBody);
+
+  const { type } = JSON.parse(reqBody)
+
+  if (type == "page.content_updated") {
+    console.log("Deploying Patworld...")
+    const response = await fetch("https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/211ebbfd-6eb6-402b-b08e-8089523e7244", { method: "POST" })
+    if (!response.ok) {
+      c.status(500)
+      return c.text("Failed to deploy Patworld")
+    }
+    c.status(200)
+    return c.text("Sucessfully deployed Patworld")
+  }
 });
 
 export default app;

@@ -1,0 +1,62 @@
+{
+  "id": "c72dc0f2-d5b6-4679-9dc0-39fe358212fb",
+  "timestamp": "2026-02-01T20:13:44.216Z",
+  "workspace_id": "b327e0dd-02a1-48b9-bfa2-fbf4378fa3c0",
+  "workspace_name": "Patrick Cartlidge's Notion",
+  "subscription_id": "2d2d872b-594c-81a6-a10e-0099067ca6d2",
+  "integration_id": "2cfd872b-594c-80a8-8070-00373b641d7c",
+  "authors": [
+    {
+      "id": "f685970b-df82-498c-a8ae-79b7faf06347",
+      "type": "person"
+    }
+  ],
+  "api_version": "2025-09-03",
+  "entity": {
+    "id": "2da6d3af-9b15-8000-8c15-ff05cfc29477",
+    "type": "page"
+  },
+  "type": "page.content_updated",
+  "data": {
+    "parent": {
+      "id": "2d96d3af-9b15-80c2-96e7-dd6731796cc4",
+      "type": "database",
+      "data_source_id": "2d96d3af-9b15-8008-ab3e-000b27ab2c98"
+    },
+    "updated_blocks": [
+      {
+        "id": "2fa6d3af-9b15-807d-8a6a-dc2e595f6479",
+        "type": "block"
+      }
+    ]
+  },
+  "attempt_number": 1,
+  "$workers": {
+    "truncated": false,
+    "event": {
+      "request": {
+        "url": "https://patrick-pages-builder.patrickcartlidge.workers.dev/",
+        "method": "POST",
+        "path": "/"
+      }
+    },
+    "outcome": "ok",
+    "scriptName": "patrick-pages-builder",
+    "eventType": "fetch",
+    "executionModel": "stateless",
+    "scriptVersion": {
+      "id": "8ccbefb4-b0a5-4ede-bb0b-f22e5ededafd"
+    },
+    "requestId": "9c741df77c798bee"
+  },
+  "$metadata": {
+    "id": "01KGDDFXNBWMSJVT8KFX52Y82C",
+    "requestId": "9c741df77c798bee",
+    "trigger": "POST /",
+    "service": "patrick-pages-builder",
+    "account": "5a87b79724ffeb59b6254ad3dd28f864",
+    "type": "cf-worker",
+    "fingerprint": "0a890e43b2e36d4347a407e87d65f51d",
+    "origin": "fetch"
+  }
+}
