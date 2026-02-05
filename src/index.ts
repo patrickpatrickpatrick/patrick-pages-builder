@@ -36,6 +36,8 @@ app.post("*", async (c) => {
 
   const { type } = JSON.parse(reqBody)
 
+  console.log(type)
+
   if (type == "page.content_updated") {
     console.log("Deploying Patworld...")
     const response = await fetch("https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/211ebbfd-6eb6-402b-b08e-8089523e7244", { method: "POST" })
